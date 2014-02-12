@@ -28,7 +28,7 @@ class DNSProxy(object):
 
     def writeDNS(self):
 	try:
-	   f = open(self.__RESOLV__, "w")
+	   f = open(self.__RESOLV__, 'w+')
 	   for addr in self.proxyip:
               f.write("nameserver %s\n" % addr)
 	   f.close
