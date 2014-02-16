@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<addon id="repository.googlecode.mcintyremedia-tv" name="McIntyreMedia.tv Repository" version="1.0.0" provider-name="McIntyreMedia">
+﻿  <extension point="xbmc.addon.repository" name="McIntyreMedia.tv Repository">
+﻿  ﻿  <info compressed="false">http://mcintyremedia-tv.googlecode.com/svn/trunk/plugins/addons.xml</info>
+﻿  ﻿  <checksum>http://mcintyremedia-tv.googlecode.com/svn/trunk/plugins/addons.xml.md5</checksum>
+﻿  ﻿  <datadir zip="false">http://mcintyremedia-tv.googlecode.com/svn/trunk/plugins</datadir>
+﻿  </extension>
+﻿  <extension point="xbmc.addon.metadata">
+﻿  ﻿  <summary>Install Add-ons from McIntyreMedia.tv</summary>
+﻿  ﻿  <description>Download and install add-ons from McIntyreMedia.tv</description>
+﻿  ﻿  <disclaimer>This repository and its contents are provided free and without guarantee. McIntyreMedia is not responsible for any misuse of this repository</disclaimer>
+  ﻿  <platform>all</platform>
+﻿  </extension>
+</addon>
