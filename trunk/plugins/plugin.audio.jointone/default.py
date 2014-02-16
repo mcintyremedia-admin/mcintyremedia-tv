@@ -1,17 +1,43 @@
 import sys
 import urllib
 import urlparse
+import re
+import xbmc
 import xbmcgui
 import xbmcplugin
 from xml.dom import minidom
+
+
+class Mix(object):
+    def __init__(self, name, title, date, description, playlist):
+       self.name = name
+       self.title = title
+       self.date = date
+       self.description = description
+       self.playlist = playlist
+       
+       titleparts = re.split('\s+#(\d+)',title)
+       self.shorttitle = titleparts[0]
+       self.titlenumber = 1
+       if len(titleparts) > 1:
+           self.titlenumber = int(titleparts[1])
+           
+       
+    def xbmcurl(self, xbmcbase):
+       return xbmcbase + '?' + urllib.urlencode({'mode': 'mix', 
+                                                 'name': self.name, 
+                                                 'title': self.title, 
+                                                 'playlist': self.playlist, 
+                                                 'path' : self.path}) 
+                                                 
 
 
 base_url = sys.argv[0]
 addon_handle = int(sys.argv[1])
 args = urlparse.parse_qs(sys.argv[2][1:])
 
-baseurl = 'http://www.jointone.com/player'
-playlisturl = "%s/xml/player_config.xml" % baseurl
+playurl = 'http://www.jointone.com/player'
+playlisturl = "%s/xml/player_config.xml" % playurl
 playlistdom = minidom.parse(urllib.urlopen(playlisturl))
 allalbums = {}
 
@@ -37,6 +63,28 @@ def getChildValue(node, subnode):
     else:
         return child.nodeValue 
 
+def getAlbumMixes(album):
+    mixes=[]
+    for mixnode in album.getElementsByTagName('mix'):
+        mixes.append(Mix(getChildValue(mixnode, 'name'),
+                         getChildValue(mixnode, 'title'),
+                         getChildValue(mixnode, 'date'),
+                         getChildValue(mixnode, 'description'),
+                         getChildValue(mixnode, 'playlist')))
+    return mixes
+
+def getMixNames(album):
+    mixnames=[]
+    for mixnode in album.getElementsByTagName('mix'):
+        mix = Mix(getChildValue(mixnode, 'name'),
+                  getChildValue(mixnode, 'title'),
+                  getChildValue(mixnode, 'date'),
+                  getChildValue(mixnode, 'description'),
+                  getChildValue(mixnode, 'playlist'))
+        if not mix.shorttitle in mixnames:
+            mixnames.append(mix.shorttitle)
+    return sorted(mixnames)
+
 
 if __name__ == "__main__":
 
@@ -53,27 +101,39 @@ if __name__ == "__main__":
 
         title = args.get('title', [None])[0]
         path = args.get('path', [None])[0]
+        album = allalbums[title]        
+
+        for name in getMixNames(album):
+            url = build_url({'mode': 'mixcollection', 'name': name, 'title':title, 'path':path})            
+            li = xbmcgui.ListItem("%s" % name, iconImage='DefaultAudio.png')	   
+            xbmcplugin.addDirectoryItem(handle=addon_handle, url=url, listitem=li, isFolder=True)
+
+        xbmcplugin.endOfDirectory(addon_handle)
+
+    elif mode[0] == 'mixcollection':
+        title = args.get('title', [None])[0]
+        name = args.get('name', [None])[0]
+        path = args.get('path', [None])[0]
         album = allalbums[title]
+        albummixes = []        
 
-        for mix in album.getElementsByTagName('mix'):
-	    name = getChildValue(mix, 'name')
-	    title = getChildValue(mix, 'title')
-	    date = getChildValue(mix, 'date')
-	    description = getChildValue(mix, 'description')
-	    playlist = getChildValue(mix, 'playlist')
-
-	    url = build_url({'mode': 'mix', 'name': name, 'title': title, 'playlist': playlist, 'path' : path})            
-	    li = xbmcgui.ListItem("%s (%s)" % (title, date), iconImage='DefaultAudio.png')	   
+        for mix in getAlbumMixes(album):
+           if mix.shorttitle == name:
+                albummixes.append(mix)        
+        
+        for mix in albummixes:
+            url = build_url({'mode': 'mix', 'name': mix.name, 'title':mix.title, 'id':mix.titlenumber, 'path':path}) 
+            li = xbmcgui.ListItem("%s (%s)" % (mix.title, mix.date), iconImage='DefaultAudio.png')	   
             xbmcplugin.addDirectoryItem(handle=addon_handle, url=url, listitem=li, isFolder=False)
 
         xbmcplugin.endOfDirectory(addon_handle)
 
     elif mode[0] == 'mix':
-	title = args.get('title', [None])[0]
+        title = args.get('title', [None])[0]
         path = args.get('path', [None])[0]
-	name = args.get('name', [None])[0]
-	playlist = args.get('playlist', [None])[0]
+        name = args.get('name', [None])[0]
+        playlist = args.get('playlist', [None])[0]
         audiofolder = getAudioFolder(playlistdom)
 
-	playurl = "%s/%s/%s/%s/%s.mp3" % (baseurl, audiofolder, path, name, name)	
-	xbmc.Player().play(playurl)
+        playurl = "%s/%s/%s/%s/%s.mp3" % (playurl, audiofolder, path, name, name)	
+        xbmc.Player().play(playurl)
