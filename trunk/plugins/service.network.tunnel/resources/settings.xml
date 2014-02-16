@@ -2,9 +2,8 @@
   <!-- Enable -->
   <category label="32000">
     <setting label="32001" id="enabled"  type="bool"  default="false"/>
-    <setting label="32002" id="provider" type="enum" option="hidden"  enable="!eq(-1,)" default="" values="SmartDNSProxy|Tunlr"/>
-    <setting label="32003" id="username" type="text" option="hidden"  enable="!eq(-2,)" default=""/>
+    <setting label="32002" id="provider" type="enum" enable="!eq(-1,)" default="" values="SmartDNSProxy|Tunlr"/>
+    <setting label="32003" id="username" type="text" enable="!eq(-2,)" default=""/>
     <setting label="32004" id="password" type="text" option="hidden"  enable="!eq(-3,)" default=""/>
-    <setting label="32005" id="firsttimerun" type="bool"option="hidden" default="false"/>
   </category>
 </settings>
