@@ -5,7 +5,7 @@ sys.path.insert(0, os.path.join(os.path.abspath(os.path.dirname(__file__)), 'lib
 
 __scriptid__ = "service.network.tunnel"
 __addon__ = xbmcaddon.Addon(__scriptid__)
-__providers__ = ['SmartDNSProxy', 'Tunlr']
+__providers__ = ['SmartDNSProxy']
     
 def loginAndWriteDNS():
     providerid     = __addon__.getSetting('provider')
