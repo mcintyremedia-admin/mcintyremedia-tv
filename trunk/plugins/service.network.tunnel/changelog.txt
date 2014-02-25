@@ -1,4 +1,8 @@
 v0.0.1
 - Initial version 
 v0.0.2
-- SmartDNS version 
+- SmartDNS version
+v0.0.3
+- testing repo
+v0.0.4
+- Initial Tunlr support  
