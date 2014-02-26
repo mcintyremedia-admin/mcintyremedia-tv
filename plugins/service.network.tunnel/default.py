@@ -3,6 +3,7 @@ import xbmc, xbmcaddon, xbmcgui, sys, os
 
 sys.path.insert(0, os.path.join(os.path.abspath(os.path.dirname(__file__)), 'lib'))
 
+__myresolv__ = "/root/.xbmc/myResolv.conf"
 __scriptid__ = "service.network.tunnel"
 __addon__ = xbmcaddon.Addon(__scriptid__)
 __providers__ = ['SmartDNSProxy']
@@ -26,6 +27,8 @@ def loginAndWriteDNS():
 
 
 if __name__ == "__main__":
+    if os.path.isfile(__myresolv__):
+        os.remove(__myresolv__)
     enabled = __addon__.getSetting('enabled')
     if enabled == 'true':
         loginAndWriteDNS()
