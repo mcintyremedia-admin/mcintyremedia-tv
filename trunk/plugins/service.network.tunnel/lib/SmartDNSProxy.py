@@ -50,5 +50,3 @@ class SmartDNSProxy(DNSProxy):
         self.browser.submit()
         
 
-SmartDNSProxy().login("admin@mcintyremedia.tv", "p@$$word")
-
