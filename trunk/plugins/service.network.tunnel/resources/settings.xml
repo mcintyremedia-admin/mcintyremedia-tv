@@ -2,8 +2,9 @@
   <!-- Enable -->
   <category label="32000">
     <setting label="32001" id="enabled"  type="bool"  default="false"/>
-    <setting label="32002" id="provider" type="enum" enable="!eq(-1,)" default="" values="SmartDNSProxy"/>
-    <setting label="32003" id="username" type="text" enable="!eq(-2,)" default=""/>
-    <setting label="32004" id="password" type="text" option="hidden"  enable="!eq(-3,)" default=""/>
+    <setting label="32002" id="provider" type="enum" visible="eq(-1,true)" default="" values="McIntyreMedia|SmartDNSProxy|Custom"/>
+    <setting label="32003" id="username" type="text" visible="eq(-1,1)" default=""/>
+    <setting label="32004" id="password" type="text" visible="eq(-2,1)" default=""/>
+    <setting label="32005" type="ipaddress" id="customsmartipaddress" visible="eq(-3,2)" default=""/>
   </category>
 </settings>
