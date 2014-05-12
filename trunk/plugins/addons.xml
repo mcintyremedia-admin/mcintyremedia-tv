@@ -22,7 +22,7 @@
     </extension>
 </addon>
 
-<addon id="plugin.audio.jointone" name="JointOne" version="1.0.2" provider-name="McIntyreMedia">
+<addon id="plugin.audio.jointone" name="JointOne" version="2.0.0" provider-name="McIntyreMedia">
   <requires>
     <import addon="xbmc.python" version="2.1.0"/>
   </requires>
