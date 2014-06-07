@@ -1,37 +1,27 @@
-import mechanize
-import cookielib
+# -*- coding: utf-8 -*-
 
 class DNSProxy(object):
 
     __RESOLV__ = r"/etc/resolv.conf"
+    __DNS_IP__ = []
+    
+    def __init__(self, addon):
+        self.addon = addon
 
-    def __init__(self, proxyip):
-        self.proxyip = proxyip
-        self.browser = mechanize.Browser()
-                
-    def initialiseBrowser(self):        
-        br = self.browser
-        cj = cookielib.LWPCookieJar()
-        br.set_cookiejar(cj)
-
-        br.set_handle_equiv(True)
-        br.set_handle_redirect(True)
-        br.set_handle_referer(True)
-        br.set_handle_robots(False)
-        br.addheaders = [("User-agent", "Mozilla/5.0 (X11; U; Linux i686; en-US; rv:1.9.2.13) Gecko/20101206 Ubuntu/10.10 (maverick) Firefox/3.6.13")]  
-
-        br.set_handle_refresh(mechanize._http.HTTPRefreshProcessor(), max_time=1)
-
+    def authenticate(self):
+        return False
+                        
+    def getProxyDetails(self):
+        return self.__DNS_IP__
         
-    def login(self, username, password):
-        self.initialiseBrowser()        
-
     def writeDNS(self):
-	try:
-	   f = open(self.__RESOLV__, 'w+')
-	   for addr in self.proxyip:
-              f.write("nameserver %s\n" % addr)
-	   f.close
-	except IOError as err:
+        try:
+           proxydetails = self.getProxyDetails()
+           if len(proxydetails) > 0 :
+              f = open(self.__RESOLV__, 'w+')
+              for addr in proxydetails:
+                 f.write("nameserver %s\n" % addr)
+              f.close
+        except Exception as err:
            print err
         

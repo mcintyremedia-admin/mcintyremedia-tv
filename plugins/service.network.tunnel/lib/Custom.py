@@ -1,17 +1,14 @@
+# -*- coding: utf-8 -*-
 
-import xbmc, xbmcaddon
 from DNSProxy import DNSProxy
-
-__scriptid__ = "service.network.tunnel"
-__addon__ = xbmcaddon.Addon(__scriptid__)
-
 
 class Custom(DNSProxy):
 
-    def __init__(self):       
-        super(Custom, self).__init__([__addon__.getSetting('customsmartipaddress')])
+    def __init__(self, addon):       
+        super(Custom, self).__init__(addon)
 
-    def login(self, username, password):
+    def getProxyDetails(self):
+        return [self.__addon__.getSetting('customsmartipaddress')]
+
+    def authenticate(self):
         return True
-                        
-
