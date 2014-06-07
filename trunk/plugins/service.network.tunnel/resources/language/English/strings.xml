@@ -5,6 +5,10 @@
 	<string id="32002">Provider</string>
 	<string id="32003">Username</string>
 	<string id="32004">Password</string>
-	<string id="32005">Custom DNS</string>
+	<string id="32005"></string>
+
+	<string id="40001">The username %s is unrecognised,|please check your settings</string>
+	<string id="40002">Your account has expired.|Please visit http://www.mcintyremedia.tv to renew|your subscription</string>
+	<string id="40003">An unknown error has occurred,|please contact support</string>
 </strings>
 

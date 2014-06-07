@@ -10,3 +10,5 @@ v0.0.5
 - remove Tunlr support
 v0.0.6
 - remove hardcoded myResolv file
+v0.1.0
+- introduce McIntyreMedia.tv smart proxy services 
