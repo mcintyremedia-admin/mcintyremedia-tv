@@ -29,12 +29,12 @@ class McIntyreMedia(DNSProxy):
     def _call(self, fn):
         try:
             return fn(self.getusername())
-        except Exception as e:
+        except xmlrpclib.Fault as e:
             if e.faultCode == UserState.Unknown:
                 raise Exception(self.addon.getLocalizedString(40001) % e.faultString)
             elif e.faultCode == UserState.Expired:
                 raise Exception(self.addon.getLocalizedString(40002))
             elif e.faultCode == UserState.Error:
                 raise Exception(e.faultString)
-            else:
-                raise Exception(self.addon.getLocalizedString(40003))                
+        except Exception as e:
+                raise Exception("%s|%s" % (self.addon.getLocalizedString(40003), str(e)))                
