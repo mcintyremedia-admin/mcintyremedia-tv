@@ -10,19 +10,21 @@ import xbmcaddon
 import xbmcplugin
 
 pluginHandle = int(sys.argv[1])
-module_name = "pbskids"
+module_name = "comedy"
+#_common.args.mode = ""
+#_common.args.sitemode = ""
 _common.args.fanart=_common.PLUGINFANART
 
-__plugin__ = 'PBS Kids'
+__plugin__ = 'Comedy Central'
 __authors__ = 'BlueCop'
 __credits__ = 'moneymaker, slices, zero'
 __version__ = '1.0.0'
 
-print '\n\n\n start of PBS Kids plugin'
+print '\n\n\n start of CC plugin'
 
 def modes():
 	if sys.argv[2] == '':
-		_common.args.mode = module_name 
+		_common.args.mode = "comedy" 
 		_common.args.sitemode = "rootlist"
 		network = _common.get_network(_common.args.mode)
 		if network:
