@@ -14,7 +14,7 @@ sys.path.append (BASE_RESOURCE_PATH)
 print "[SCRIPT] '%s: version %s' initialized!" % (__id__, __version__, )
 
 if (__name__ == "__main__"):
-   xbmc.executebuiltin('Addon.OpenSettings(service.network.tunnel)')
+   xbmc.executebuiltin('Addon.OpenSettings(service.network.tunnel)', True)
    if xbmcgui.Dialog().yesno("McIntyreMedia Tunnel", __addon__.getLocalizedString(601), __addon__.getLocalizedString(602)):
        xbmc.executebuiltin('XBMC.Reboot()', True)
 
