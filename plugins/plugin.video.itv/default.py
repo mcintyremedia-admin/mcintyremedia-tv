@@ -7,8 +7,6 @@ import urllib2
 
 from BeautifulSoup import BeautifulSoup
 
-import rpdb2; 
-
 # setup cache dir
 __scriptname__  = 'ITV'
 __scriptid__ = "plugin.video.itv"
