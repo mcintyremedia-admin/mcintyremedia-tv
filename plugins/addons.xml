@@ -80,6 +80,24 @@
   </extension>
 </addon>
 
+<addon id="plugin.video.itv"
+       name="ITV"
+       version="2.0.4"
+       provider-name="dlake02,McIntyreMedia.tv">
+  <requires>
+    <import addon="xbmc.python" version="1.0"/>
+  </requires>
+  <extension point="xbmc.python.pluginsource"
+            library="default.py">
+        <provides>video</provides>
+  </extension>
+  <extension point="xbmc.addon.metadata">
+    <platform>all</platform>
+    <summary>Plugin for ITV Player</summary>
+    <description>ITV Player Front End</description>
+  </extension>
+</addon>
+
 <addon id="script.mcintyremedia.managedns"
        name="Tunnel Manager"
        version="0.0.2"
