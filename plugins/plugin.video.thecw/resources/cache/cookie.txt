@@ -1,0 +1,3 @@
+#LWP-Cookies-2.0
+Set-Cookie3: hdntl="exp=1403410210~acl=%2fi%2fFox.com%2f312%2f843%2f24LiveAnotherDay_9AFF08_*~data=hdntl~hmac=be2377cbed1eb452cf8f92472f248817423dee57d8a51e0400d1fb346979f205"; path="/"; domain=".fbchdvod-f.akamaihd.net"; path_spec; discard; version=0
+Set-Cookie3: _alid_="69sCptQp/w95t/nzGzRgLg=="; path="/i/Fox.com/312/843/24LiveAnotherDay_9AFF08_,800,2500,1800,1300,500,300,225,150,.mp4.csmil/"; domain=".fbchdvod-f.akamaihd.net"; path_spec; discard; version=0
