@@ -25,7 +25,7 @@ if not os.path.isdir(SUBTITLES_DIR):
 if not os.path.isdir(IMAGE_DIR):
     os.makedirs(IMAGE_DIR)
 
-DEFAULT_PROXY='213.229.74.236'
+DEFAULT_PROXY='88.80.190.167'
 DEFAULT_PROXY_PORT=80
 USE_DEFAULT_PROXY = __settings__.getSetting('proxy_use') != 'true'
 
