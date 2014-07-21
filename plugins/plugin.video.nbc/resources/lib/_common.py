@@ -31,7 +31,7 @@ SUBTITLE = os.path.join(CACHEPATH,'subtitle.srt')
 SUBTITLESMI = os.path.join(CACHEPATH,'subtitle.smi')
 COOKIE = os.path.join(CACHEPATH,'cookie.txt')
 
-ADDONID = 'plugin.video.ustvvod'
+ADDONID = 'plugin.video.nbc'
 TVDBAPIKEY = '03B8C17597ECBD64'
 TVDBURL = 'http://thetvdb.com'
 TVDBBANNERS = 'http://thetvdb.com/banners/'

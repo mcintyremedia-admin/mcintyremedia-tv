@@ -16,7 +16,7 @@ except:
 __plugin_handle__ = int(sys.argv[1])
 
 if __has_addons__:
-	__addon__ = xbmcaddon.Addon('plugin.video.ustvvod')
+	__addon__ = xbmcaddon.Addon('plugin.video.nbc')
 
 def get_os():
 	try: xbmc_os = os.environ.get('OS')
