@@ -10,6 +10,8 @@
 	<string id="10002">Send log file to support?</string>
 	<string id="10003">Log file successfully sent</string>
 	<string id="10004">Note: some mail providers restrict external mails</string>
+	<string id="10005">Sending mail ...</string>
+	<string id="10005">Mail sent</string>
 	
 	<string id="32000">Email Settings</string>
 	<string id="32001">Provider</string>

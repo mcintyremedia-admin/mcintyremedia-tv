@@ -13,18 +13,21 @@ sys.path.append(xbmc.translatePath( os.path.join( __cwd__, 'resources', 'lib' ))
 from SupportMailer import SupportMailer
 from EmailSettings import EmailSettings
 from SettingsException import SettingsException
-
-#from HelpDialog import MainDialog
        
 if __name__ == "__main__":                         
     try:                                   
         if xbmcgui.Dialog().yesno(__addon__.getLocalizedString(10001), 
                                   __addon__.getLocalizedString(10002)):
             mailer=SupportMailer(EmailSettings(__addon__, __settingsfile__)) 
-            mailer.mailfile("User logfile", "User logfile", 
+            progressBar = xbmcgui.DialogProgress()
+            try:                
+                progressBar.create(__addon__.getLocalizedString(10005))            
+                mailer.mailfile("User logfile", "User logfile", 
                             os.path.join(xbmc.translatePath('special://logpath'), 'xbmc.log'))
-            
-            xbmcgui.Dialog().ok( __addon__.getLocalizedString(10001), __addon__.getLocalizedString(10003) )
+                progressBar.update( 100, "", __addon__.getLocalizedString(10006), "" )
+                xbmcgui.Dialog().ok( __addon__.getLocalizedString(10001), __addon__.getLocalizedString(10003) )
+            finally:
+                progressBar.close()
 
     except SettingsException as e:
         xbmcgui.Dialog().ok( __addon__.getLocalizedString(10001), "Error : %s" % __addon__.getLocalizedString(e.value) )
