@@ -1,0 +1,11 @@
+<settings>
+  <!-- Enable -->
+  <category label="32000">
+	<setting label="32001" id="provider" type="enum" default="" values="Gmail|Excite|MSN|Hotmail|Live|AT&T|Airmail.net|AOL|Comcast|Cox Business|Earthlink|Embarq|Frontier|GoDaddy|Grande|Juno|Mail.com|Mediacom|US Army|Verizon|Yahoo|Other"/> 
+    <setting label="32002" id="username" type="text" default=""/>
+    <setting label="32003" id="password" type="text" option="hidden" default=""/> 
+    <setting label="32004" id="server" type="text" visible="eq(-3,21)" default=""/>
+	<setting label="32005" id="port" type="text" visible="eq(-4,21)" default=""/>
+    <setting label="32006" id="emailto" type="" visible="" default="support@mcintyremedia.tv"/> 
+  </category>
+</settings>

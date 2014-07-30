@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<strings>
+	
+    <string id="624">Done</string>
+    <string id="625">Cancel</string>
+    <string id="626">Send Log</string>
+    <string id="627">Send Message</string>           
+  
+	<string id="10001">McIntyreMedia.tv Support</string>
+	<string id="10002">Send log file to support?</string>
+	<string id="10003">Log file successfully sent</string>
+	<string id="10004">Note: some mail providers restrict external mails</string>
+	
+	<string id="32000">Email Settings</string>
+	<string id="32001">Provider</string>
+	<string id="32002">Email address</string>
+	<string id="32003">Password</string>
+	<string id="32004">Server</string>
+	<string id="32005">Port</string>
+	<string id="32006"></string>
+
+	<string id="40001">Missing email address</string>
+	<string id="40002">Missing email password</string>
+	<string id="40003">Missing email provider</string>
+	<string id="40004">Missing email server</string>
+	<string id="40005">Missing email port</string>
+	<string id="40006">Missing secure email settings</string>
+	<string id="40007">Missing support email address</string>
+
+	<string id="50001">Unable to find email providers file</string>
+	
+	<string id="99999"></string>
+
+</strings>	      
