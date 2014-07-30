@@ -1,0 +1,21 @@
+Gmail,smtp.gmail.com,587,Yes
+Excite,smtp.excite.com,587,Yes
+MSN,smtp.live.com,587,Yes
+Hotmail,smtp.live.com,587,Yes
+Live,smtp.live.com,587,Yes
+AT&T,smtp.mail.att.net,587,Yes
+Airmail.net,smtp.airmail.net,587,Yes
+AOL,smtp.aol.com,587,Yes
+Comcast,smtp.comcast.net,587,Yes
+Cox Business,smtp.coxmail.com,587,Yes
+Earthlink,smtpauth.earthlink.net,587,Yes
+Embarq,smtp.embarqmail.com,587,Yes
+Frontier,smtp.frontier.com,587,Yes
+GoDaddy,smtpout.secureserver.net,587,Yes
+Grande,mail.grandecom.net,587,Yes
+Juno,smtp.juno.com,587,Yes
+Mail.com,smtp.mail.com,587,Yes
+Mediacom,mail.mediacombb.net,587,Yes
+US Army,mailrouter.us.army.mil,587,Yes
+Verizon,outgoing.verizon.net,587,Yes
+Yahoo,smtp.mail.yahoo.com,587,Yes
