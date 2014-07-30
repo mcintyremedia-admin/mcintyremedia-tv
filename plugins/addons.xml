@@ -90,6 +90,22 @@
   </extension>
 </addon>
 
+<addon id="script.mcintyremedia.support"
+       name="McIntyreMedia Support"
+       version="0.0.1"
+       provider-name="mcintyremedia.tv">
+  <requires>
+    <import addon="xbmc.python" version="2.0"/>
+  </requires>
+  <extension point="xbmc.python.script" library="default.py" />
+  <extension point="xbmc.addon.metadata">
+  	<language>en</language>
+    <platform>linux</platform>
+    <summary lang="en">McIntyreMedia.tv support package</summary>
+    <description lang="en">McIntyreMedia.tv support package</description>
+  </extension>
+</addon>
+
 <addon id="plugin.audio.jointone" name="JointOne" version="2.0.0" provider-name="McIntyreMedia">
   <requires>
     <import addon="xbmc.python" version="2.1.0"/>
@@ -369,8 +385,8 @@ AMF3, the default serialization for ActionScript 3.0, provides various advantage
     <description lang="de"></description>
     <disclaimer lang="en">Some parts of this addon may not be legal in your country of residence - please check with your local laws before installing.</disclaimer>
     <disclaimer lang="de">Einige Teile dieses Addons sind möglicherweise in Ihrem Land nicht legal - bitte prüfen Sie Ihre lokal gültigen Gesetze vor der Installation.</disclaimer>
-    <source>https://github.com/moneymaker365/plugin.video.ustvvod</source>
-    <forum>http://forum.xbmc.org/showthread.php?tid=166099</forum>
+    <source></source>
+    <forum></forum>
   </extension>
 </addon>
 
