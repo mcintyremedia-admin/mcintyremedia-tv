@@ -5,7 +5,7 @@ import xmlrpclib
 from DNSProxy import DNSProxy
     
 class UserState:
-    Authenticated, Unknown, Active, Expired, IPChangeRequired, Error = range(6)
+    Authenticated, Unknown, Active, Expired, IPChangeRequired, AddedNew, Error = range(7)
     
     
 class McIntyreMedia(DNSProxy):
@@ -27,14 +27,14 @@ class McIntyreMedia(DNSProxy):
         return self._call(self.authproxy.getProxyDetails)
                         
     def _call(self, fn):
-        #try:
-            return fn(self.getusername())
-        #except xmlrpclib.Fault as e:
-        #    if e.faultCode == UserState.Unknown:
-        #        raise Exception(self.addon.getLocalizedString(40001) % e.faultString)
-        #    elif e.faultCode == UserState.Expired:
-        #        raise Exception(self.addon.getLocalizedString(40002))
-        #    elif e.faultCode == UserState.Error:
-        #        raise Exception(e.faultString)
-        #except Exception as e:
-        #        raise Exception("%s|%s" % (self.addon.getLocalizedString(40003), str(e)))                
+        try:
+            return fn(self.getusername())            
+        except xmlrpclib.Fault as e:
+            if e.faultCode == UserState.Unknown:
+                raise Exception(self.addon.getLocalizedString(40001) % e.faultString)
+            elif e.faultCode == UserState.Expired:
+                raise Exception(self.addon.getLocalizedString(40002))
+            elif e.faultCode == UserState.Error:
+                raise Exception(e.faultString)
+        except Exception as e:
+                raise Exception("%s|%s" % (self.addon.getLocalizedString(40003), str(e)))                
