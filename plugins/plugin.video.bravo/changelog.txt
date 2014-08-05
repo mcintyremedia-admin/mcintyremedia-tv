@@ -1,0 +1,77 @@
+version 1.0.5
+
+  * tidy up for all shows and tvdb
+  * fix MTV
+  * tvdb lookup changes
+  * Adult Swim show list change
+  * added Cartoon Network
+  * added TBS
+  * refactored turner stations
+  * made tvdb lookup configurable
+  * added TNT
+  * aded truTV and settings option
+  * allow m3u8 with multiple keys
+  * ignore CC items that are not shows
+  * new stream method for Viacom
+  * fixed issue with playback resetting to 0
+  * fix for type change in settings
+  * fix South Park
+  * fix for subtitles
+  * tidy up ‚_main_viacom.py‘ file
+
+version 1.0.4
+
+  * fix for some environments
+  * filter out duplicates from pbs
+  * fix tonight show eps with no description
+  * fix common lookup
+  * tidy up shows in pbs
+  * fix for MTV and SyFy
+  * fix unicode issue on cleanup
+  * Comedy POC
+  * fixes for CBS
+  * fix for masterlist in NatGeo
+  * clean up all shows
+  * .gitignore for .bak files
+
+version 1.0.3
+
+  * some seasons () do not have an 'url' argument
+  * make Cosmos work on FOX
+  * episode and seasons labels in PBS
+  * fixes all shows
+  * ignore 'the' in sorting site list
+  * fix add to favorites
+  * fix db creation problem
+  * fix for failing clips on Nickelodeon
+  * delete cache files
+  * fix NatGeo
+  * fix NatGeo Wild
+  * fix issue with db refresh
+  * fix issues with ABC shows in all shows
+  * exclude close button from shows on ComedyCentral
+  * list all video feeds for Colbert Report/Daily Show
+
+version 1.0.2
+
+  * fix for master list
+  * fixed issues with “all shows“
+  * added comedy central shows
+  * fix for comedy central in “all shows“
+  * fixed Daily Show & Colbert Report
+  * refresh TVDB data was broken
+
+version 1.0.1
+
+  * context menu - forgotten name changes
+  * fixed Daily Show & Colbert Report
+  * sort networks alphabetically
+  * fixed none available SouthPark shows
+  * create README.md (GitHub source)
+  * use variable library path instead of remapping path
+  * fixed NatGeo network
+  * fixed Tonight Show
+
+version 1.0.0
+
+  * initial release of USTV VoD (formerly FREE CABLE)
