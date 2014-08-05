@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <addons>
-<addon id="plugin.video.cbs" name="CBS" version="1.0.2" provider-name="BlueCop">
+<addon id="plugin.video.cbs" name="CBS" version="1.0.3" provider-name="BlueCop">
   <requires>
     <import addon="xbmc.python" version="2.1.0"/>
     <import addon="script.module.beautifulsoup4" version="4.3.2"/>
@@ -142,7 +142,7 @@
   </extension>
 </addon>
 
-<addon id="plugin.video.aetv" name="A&#38;E" version="1.0.2" provider-name="McIntyreMedia.tv / BlueCop">
+<addon id="plugin.video.aetv" name="A&#38;E" version="1.0.3" provider-name="McIntyreMedia.tv / BlueCop">
   <requires>
     <import addon="xbmc.python" version="2.1.0"/>
     <import addon="script.module.beautifulsoup4" version="4.3.2"/>
@@ -202,7 +202,7 @@
   </extension>
 </addon>
 
-<addon id="plugin.video.crackle" name="Crackle" version="1.0.2" provider-name="McIntyreMedia.tv / BlueCop">
+<addon id="plugin.video.crackle" name="Crackle" version="1.0.3" provider-name="McIntyreMedia.tv / BlueCop">
   <requires>
     <import addon="xbmc.python" version="2.1.0"/>
     <import addon="script.module.beautifulsoup4" version="4.3.2"/>
@@ -247,7 +247,7 @@
   </extension>
 </addon>
 
-<addon id="plugin.video.disney" name="Disney" version="1.0.2" provider-name="McIntyreMedia.tv / Bluecop">
+<addon id="plugin.video.disney" name="Disney" version="1.0.3" provider-name="McIntyreMedia.tv / Bluecop">
   <requires>
     <import addon="xbmc.python" version="2.1.0"/>
     <import addon="script.module.beautifulsoup4" version="4.3.2"/>
@@ -318,7 +318,7 @@
   </extension>
 </addon>
 
-<addon id="plugin.video.pbskids" name="PBS Kids" version="1.0.2" provider-name="BlueCop">
+<addon id="plugin.video.pbskids" name="PBS Kids" version="1.0.3" provider-name="BlueCop">
   <requires>
     <import addon="xbmc.python" version="2.1.0"/>
     <import addon="script.module.beautifulsoup4" version="4.3.2"/>
@@ -442,7 +442,7 @@ AMF3, the default serialization for ActionScript 3.0, provides various advantage
   </extension>
 </addon>
 
-<addon id="plugin.video.abc" name="ABC" version="1.0.2" provider-name="BlueCop">
+<addon id="plugin.video.abc" name="ABC" version="1.0.3" provider-name="BlueCop">
   <requires>
     <import addon="xbmc.python" version="2.1.0"/>
     <import addon="script.module.beautifulsoup4" version="4.3.2"/>
@@ -669,7 +669,7 @@ AMF3, the default serialization for ActionScript 3.0, provides various advantage
   </extension>
 </addon>
 
-<addon id="plugin.video.fox" name="FOX" version="1.0.2" provider-name="BlueCop">
+<addon id="plugin.video.fox" name="FOX" version="1.0.3" provider-name="BlueCop">
   <requires>
     <import addon="xbmc.python" version="2.1.0"/>
     <import addon="script.module.beautifulsoup4" version="4.3.2"/>
