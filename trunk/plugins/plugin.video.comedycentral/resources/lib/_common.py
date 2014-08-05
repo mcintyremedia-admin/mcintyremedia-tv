@@ -52,6 +52,35 @@ class _Info:
 args = _Info(sys.argv[2][1:].replace('&', ' , '))
 network_module_cache = {}
 
+def root_list(network_name):
+	"""
+	Loads data from master list
+	"""
+	
+	network = get_network(network_name)
+	dialog = xbmcgui.DialogProgress()
+	dialog.create(smart_utf8(xbmcaddon.Addon(id = ADDONID).getLocalizedString(39016)))
+	current = 0
+	rootlist = []
+	
+	network_name = network.NAME
+	dialog.update(0, smart_utf8(xbmcaddon.Addon(id = ADDONID).getLocalizedString(39017)) + network.NAME, smart_utf8(xbmcaddon.Addon(id = ADDONID).getLocalizedString(39018)))
+	showdata = network.masterlist()
+	
+	total_shows = len(showdata)
+	current_show = 0
+	for show in showdata:
+		percent = int( (float(current_show) / total_shows))
+		dialog.update(percent, smart_utf8(xbmcaddon.Addon(id = ADDONID).getLocalizedString(39017)) + network.NAME, smart_utf8(xbmcaddon.Addon(id = ADDONID).getLocalizedString(39005)) + show[0])
+		current_show += 1
+		if (dialog.iscanceled()):
+			return False
+	
+	
+	for show in showdata:
+		add_show(show[0], show[1], show[2], show[3])
+	set_view('tvshows')
+
 def get_network(module_name):
 	""" 
 	Loads network using a quick and dirty plugin method
@@ -62,21 +91,15 @@ def get_network(module_name):
 	print "!!! plugin loading of site : " + module_name 
 	try:
 		module = _importlib.import_module('resources.lib.%s' % (module_name))
-
-		# module must at least have site and rootlist defined
-		if hasattr(module, 'SITE') and hasattr(module, 'rootlist'):
-
-			# patch modules with missing meta data
+		if hasattr(module, 'SITE') and hasattr(module, 'masterlist'):
 			if not hasattr(module, 'NAME'):
 				setattr(module, 'NAME', module_name)
 			if not hasattr(module, 'DESCRIPTION'):
 				setattr(module, 'DESCRIPTION', module_name)
-
 			network_module_cache[module_name] = module
 			return module
 		else:
-			print "error loading site, SITE and rootlist must be defined"
-
+			print "error loading site, SITE and materlist must be defined"
 	except Exception, e:
 		print str(e)
 		
@@ -183,55 +206,78 @@ def replace_signs(text):
 	return text
 
 def refresh_db():
+	if not os.path.isfile(_database.DBFILE):
+		print "Creating db"
+		_database.create_db()
 	networks = get_networks()
 	dialog = xbmcgui.DialogProgress()
 	dialog.create(smart_utf8(xbmcaddon.Addon(id = ADDONID).getLocalizedString(39016)))
 	total_stations = len(networks)
 	current = 0
 	increment = 100.0 / total_stations
+	all_shows = []
 	for network in networks:
 		network_name = network.NAME
 		if _addoncompat.get_setting(network.SITE) == 'true':
 			percent = int(increment * current)
 			dialog.update(percent, smart_utf8(xbmcaddon.Addon(id = ADDONID).getLocalizedString(39017)) + network.NAME, smart_utf8(xbmcaddon.Addon(id = ADDONID).getLocalizedString(39018)))
 			showdata = network.masterlist()
+			for show in showdata:
+				series_title, mode, submode, url = show
+				all_shows.append((smart_unicode(series_title.lower().strip()), smart_unicode(mode), smart_unicode(submode)))
 			total_shows = len(showdata)
 			current_show = 0
 			for show in showdata:
 				percent = int((increment * current) + (float(current_show) / total_shows) * increment)
 				dialog.update(percent, smart_utf8(xbmcaddon.Addon(id = ADDONID).getLocalizedString(39017)) + network.NAME, smart_utf8(xbmcaddon.Addon(id = ADDONID).getLocalizedString(39005)) + show[0])
-				get_serie(show[0], show[1], show[2], show[3])
+				get_serie(show[0], show[1], show[2], show[3], forceRefresh = False)
 				current_show += 1
 				if (dialog.iscanceled()):
 					return False
 		current += 1
+	command = 'select tvdb_series_title , series_title, mode, submode, url from shows order by series_title'
+	shows = _database.execute_command(command, fetchall = True) 
+	for show in shows:
+		tvdb_series_title, series_title, mode, submode, url = show
+		if ((smart_unicode(series_title.lower().strip()),smart_unicode(mode), smart_unicode(submode)) not in all_shows and (smart_unicode(tvdb_series_title.lower().strip()),smart_unicode(mode), smart_unicode(submode)) not in all_shows):
+			command = 'delete from shows where series_title = ? and mode = ? and submode = ? and url = ?;'
+			values = (series_title, mode, submode, url)
+			print "Deleting - " + series_title + " " + mode + " " + submode + " " + url
+			_database.execute_command(command, values, fetchone = True, commit = True)
 
 def get_serie(series_title, mode, submode, url, forceRefresh = False):
-	command = 'select * from shows where series_title = ? and mode = ? and submode = ?;'
-	values = (series_title, mode, submode)
+	command = 'select * from shows where lower(series_title) = ? and mode = ? and submode = ?;'
+	values = (series_title.lower(), mode, submode)
 	checkdata = _database.execute_command(command, values, fetchone = True)
-	if checkdata and not forceRefresh:
-		if checkdata[3] is not url:
+	empty_values = [series_title, mode,submode, url, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, True, False, False, series_title]
+	try:
+		tvdb_setting = int(_addoncompat.get_setting('strict_names'))
+	except:
+		tvdb_setting = 0
+	if checkdata and not forceRefresh and checkdata[24]  is not None:
+		if checkdata[3] != url: 
 			command = 'update shows set url = ? where series_title = ? and mode = ? and submode = ?;'
 			values = (url, series_title, mode, submode)
 			_database.execute_command(command, values, commit = True)
-			command = 'select * from shows where series_title = ? and mode = ? and submode = ?;'
-			values = (series_title, mode, submode)
+			command = 'select * from shows where lower(series_title) = ? and mode = ? and submode = ?;'
+			values = (series_title.lower(), mode, submode)
 			return _database.execute_command(command, values, fetchone = True)
 		else:
 			return checkdata
-	else:
+	elif tvdb_setting != 1 or forceRefresh:
 		tvdb_data = get_tvdb_series(series_title, manualSearch = forceRefresh, site = get_network(mode).NAME)
 		if tvdb_data:
 			tvdb_id, imdb_id, tvdbbanner, tvdbposter, tvdbfanart, first_aired, date, year, actors, genres, network, plot, runtime, rating, airs_dayofweek, airs_time, status, tvdb_series_title = tvdb_data
 			values = [series_title, mode, submode, url, tvdb_id, imdb_id, tvdbbanner, tvdbposter, tvdbfanart, first_aired, date, year, actors, genres, network, plot, runtime, rating, airs_dayofweek, airs_time, status, True, False, False, tvdb_series_title]
 		else:
-			values = [series_title, mode,submode, url, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, True, False, False, series_title]
+			values = empty_values
 		command = 'insert or replace into shows values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);'
 		_database.execute_command(command, values, commit = True)
 		command = 'select * from shows where series_title = ? and mode = ? and submode = ?;'
 		values = (series_title, mode, submode)
 		return _database.execute_command(command, values, fetchone = True)
+	else:
+		return empty_values
 
 def get_series_id(seriesdata, seriesname, site = '', allowManual = False):
 	shows = BeautifulSoup(seriesdata).find_all('series')
@@ -239,7 +285,42 @@ def get_series_id(seriesdata, seriesname, site = '', allowManual = False):
 		if  '**' in show_item.seriesname.string:
 			show_item.clear()
 	show_list = []
-	if len(shows) > 1:
+	punctuation = ":'!,. -\"?s"
+	exclude = set(punctuation)
+	tvdb_show_name = shows[0].seriesname.string.lower()
+	tvdb_show_name = tvdb_show_name.replace(shows[0].network.string.lower(), '').replace(site.lower(),'').replace('on','').strip()
+	tvdb_show_name = tvdb_show_name.replace('the', '').replace('show','').strip()
+	lookup = seriesname.lower()
+	lookup = lookup.replace('the', '').replace('show','').strip()
+	lookup = lookup.replace(site.lower(), '').replace('on','').strip()
+	tvdb_show_name = ''.join(ch for ch in tvdb_show_name if ch not in exclude)
+	if 'with' in tvdb_show_name and ':' not in lookup:
+		tvdb_show_name = tvdb_show_name.split('with')[0].strip()
+	else:
+		tvdb_show_name = tvdb_show_name.replace('with', '')
+	tvdb_show_name = tvdb_show_name.replace('tarring', '')
+	lookup = ''.join(ch for ch in lookup if ch not in exclude)
+	if 'with' in lookup:
+		lookup = lookup.split('with')[0].strip()
+	if 'hoted' in lookup:
+		lookup = lookup.split('hoted')[0].strip()
+	if 'hosted' in tvdb_show_name:
+		tvdb_show_name = tvdb_show_name.split('hosted')[0].strip()
+	lookup = lookup.replace('&', 'and')
+	tvdb_show_name = tvdb_show_name.replace('&', 'and')
+	numbers = {'one':1,
+			'two':2,
+			'three':3,
+			'four':4,
+			'five':5,
+			'six':6,
+			'seven':7,
+			'eight':8,
+			'nine':9}
+	for key in numbers:
+		lookup = lookup.replace(key, str(numbers[key]))
+		tvdb_show_name = tvdb_show_name.replace(key, str(numbers[key]))
+	if len(shows) > 1 or tvdb_show_name != lookup:
 		ret = -1
 		variantsExist = False
 		lookup_name = seriesname.replace('%E2%84%A2', '').lower().replace("'", "").replace('?', '').replace('!', '').strip()
@@ -252,7 +333,7 @@ def get_series_id(seriesdata, seriesname, site = '', allowManual = False):
 				item_network = ''
 			if '(' in show_item.seriesname.string and item_network == lookup_network:
 				variantsExist = True
-			elif item_name == lookup_name and item_network == lookup_network:
+			elif item_name.lower().replace(site.lower(), '').strip() == lookup_name.lower().replace(site.lower(), '').strip() and item_network == lookup_network:
 				ret = i
 		if allowManual == True and (variantsExist == True or ret == -1):
 			select = xbmcgui.Dialog()
@@ -275,7 +356,11 @@ def get_series_id(seriesdata, seriesname, site = '', allowManual = False):
 def get_tvdb_series(seriesname, manualSearch = False, site = ''):
 	seriesdata = _connection.getURL(TVDBSERIESLOOKUP + urllib.quote_plus(smart_utf8(seriesname)), connectiontype = 0)
 	try:
-		tvdb_id = get_series_id(seriesdata, seriesname, site)
+		if int(_addoncompat.get_setting('strict_names')) != 2 or manualSearch:
+			interactive = True
+		else:
+			interactive = False
+		tvdb_id = get_series_id(seriesdata, seriesname, site, interactive)
 	except:
 		if manualSearch:
 			keyb = xbmc.Keyboard(seriesname, smart_utf8(xbmcaddon.Addon(id = ADDONID).getLocalizedString(39004)))
@@ -417,11 +502,8 @@ def get_tvdb_series(seriesname, manualSearch = False, site = ''):
 	try:
 		if smart_unicode(series_tree.seriesname.text) is not '':
 			seriesname = smart_unicode(series_tree.seriesname.text)
-		else:
-			seriesname = None
 	except:
 		print '_common :: get_tvdb_series :: %s - TVDB SeriesName Failed' % seriesname
-		seriesname = None
 	return [tvdb_id, imdb_id, tvdbbanner, tvdbposter, tvdbfanart, first_aired, date, year, actors, genres, network, plot, runtime, rating, airs_dayofweek, airs_time, status, seriesname]
 
 def get_plot_by_tvdbid(tvdb_id):
@@ -466,19 +548,12 @@ def load_showlist(favored = 0):
 		if refresh:
 			refresh_db()
 	_database.check_db_version()
-	command = 'select series_title, mode, submode, url, favor, hide from shows order by series_title'
-	shows = _database.execute_command(command, fetchall = True) 
-	for series_title, mode, sitemode, url, favor, hide in shows:
-		if _addoncompat.get_setting(mode) != 'true':
-			continue
-		elif hide is 1:
-			continue
-		elif favored and not favor:
-			continue
-		add_show(series_title, mode, sitemode, url, favor = favor, hide = hide)	
+	command = "select * from shows  where url <> '' and hide <> 1 and favor = ? order by series_title"
+	shows = _database.execute_command(command, fetchall = True, values = [favored]) 
+	for show in shows:
+		add_show( masterList = True, showdata = show)	
 
-def add_show(series_title, mode = '', sitemode = '', url = '', favor = 0, hide = 0):
-	#print "add show from ",mode, series_title
+def add_show(series_title = '', mode = '', sitemode = '', url = '', favor = 0, hide = 0, masterList = False, showdata = None):
 	infoLabels = {}
 	tvdbfanart = None
 	tvdbbanner = None
@@ -488,7 +563,8 @@ def add_show(series_title, mode = '', sitemode = '', url = '', favor = 0, hide =
 	fanart = ''
 	prefixplot = ''
 	actors2 = []
-	showdata = get_show_data(series_title, mode, sitemode, url)
+	if showdata is None:
+		showdata = get_show_data(series_title, mode, sitemode, url)
 	series_title, mode, sitemode, url, tvdb_id, imdb_id, tvdbbanner, tvdbposter, tvdbfanart, first_aired, date, year, actors, genres, network, plot, runtime, rating, airs_dayofweek, airs_time, status, has_full_episodes, favor, hide, tvdb_series_title = showdata
 	network_module = get_network(mode)
 	if not network_module:
@@ -509,6 +585,7 @@ def add_show(series_title, mode = '', sitemode = '', url = '', favor = 0, hide =
 		thumb = tvdbposter
 	else:
 		thumb = os.path.join(IMAGEPATH, mode + '.png')
+	orig_series_title = series_title
 	if tvdb_series_title is not None:
 		series_title = smart_utf8(tvdb_series_title)
 	infoLabels['title'] = series_title
@@ -577,7 +654,7 @@ def add_show(series_title, mode = '', sitemode = '', url = '', favor = 0, hide =
 		u += '&poster="' + urllib.quote_plus(tvdbposter) + '"'
 	u += '&name="' + urllib.quote_plus(series_title) + '"'
 	contextmenu = []
-	refresh_u = sys.argv[0] + '?url="' + urllib.quote_plus('<join>'.join([series_title, mode, sitemode,url])) + '&mode=_contextmenu' + '&sitemode=refresh_show'
+	refresh_u = sys.argv[0] + '?url="' + urllib.quote_plus('<join>'.join([orig_series_title, mode, sitemode,url])) + '&mode=_contextmenu' + '&sitemode=refresh_show'
 	contextmenu.append((smart_utf8(xbmcaddon.Addon(id = ADDONID).getLocalizedString(39008)), 'XBMC.RunPlugin(%s)' % refresh_u))
 	if favor is 1:
 		fav_u = sys.argv[0] + '?url="' + urllib.quote_plus('<join>'.join([series_title, mode, sitemode,url])) + '&mode=_contextmenu' + '&sitemode=unfavor_show'
@@ -593,7 +670,11 @@ def add_show(series_title, mode = '', sitemode = '', url = '', favor = 0, hide =
 		contextmenu.append((smart_utf8(xbmcaddon.Addon(id = ADDONID).getLocalizedString(39010)), 'XBMC.RunPlugin(%s)' % hide_u))
 	delete_u = sys.argv[0] + '?url="' + urllib.quote_plus('<join>'.join([series_title, mode, sitemode,url])) + '&mode=_contextmenu' + '&sitemode=delete_show'
 	contextmenu.append((smart_utf8(xbmcaddon.Addon(id = ADDONID).getLocalizedString(39011)), 'XBMC.RunPlugin(%s)' % delete_u))
-	item = xbmcgui.ListItem(name, iconImage = thumb, thumbnailImage = thumb)
+	if masterList:
+		displayname = name + ' on ' + network_name
+	else:
+		displayname = name
+	item = xbmcgui.ListItem(displayname, iconImage = thumb, thumbnailImage = thumb)
 	item.addContextMenuItems(contextmenu)
 	item.setProperty('fanart_image', fanart)
 	item.setInfo(type = 'Video', infoLabels = infoLabels)

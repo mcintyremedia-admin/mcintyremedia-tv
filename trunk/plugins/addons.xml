@@ -212,7 +212,7 @@
   </extension>
 </addon>
 
-<addon id="plugin.video.comedycentral" name="Comedy Central" version="1.0.2" provider-name="BlueCop">
+<addon id="plugin.video.comedycentral" name="Comedy Central" version="1.0.3" provider-name="McIntyremedia.tv,BlueCop">
   <requires>
     <import addon="xbmc.python" version="2.1.0"/>
     <import addon="script.module.beautifulsoup4" version="4.3.2"/>
@@ -234,8 +234,8 @@
     <description lang="de"></description>
     <disclaimer lang="en">Some parts of this addon may not be legal in your country of residence - please check with your local laws before installing.</disclaimer>
     <disclaimer lang="de">Einige Teile dieses Addons sind möglicherweise in Ihrem Land nicht legal - bitte prüfen Sie Ihre lokal gültigen Gesetze vor der Installation.</disclaimer>
-    <source>https://github.com/moneymaker365/plugin.video.ustvvod</source>
-    <forum>http://forum.xbmc.org/showthread.php?tid=166099</forum>
+    <source></source>
+    <forum></forum>
   </extension>
 </addon>
 
