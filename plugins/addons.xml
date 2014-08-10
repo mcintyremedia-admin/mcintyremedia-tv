@@ -142,7 +142,7 @@
   </extension>
 </addon>
 
-<addon id="plugin.video.aetv" name="A&#38;E" version="1.0.3" provider-name="McIntyreMedia.tv / BlueCop">
+<addon id="plugin.video.aetv" name="A&#38;E" version="1.0.4" provider-name="McIntyreMedia.tv / BlueCop">
   <requires>
     <import addon="xbmc.python" version="2.1.0"/>
     <import addon="script.module.beautifulsoup4" version="4.3.2"/>
