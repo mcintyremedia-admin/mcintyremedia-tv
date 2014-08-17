@@ -8,6 +8,7 @@ import os
 import sys
 import xbmcaddon
 import xbmcplugin
+import xbmcgui 
 
 pluginHandle = int(sys.argv[1])
 
@@ -59,5 +60,11 @@ def modes():
 			getattr(network, _common.args.sitemode)()
 			if not _common.args.sitemode.startswith('play'):
 				xbmcplugin.endOfDirectory(pluginHandle)
-modes()
-sys.modules.clear()
+
+if xbmcaddon.Addon("service.network.tunnel").getSetting('enabled') == 'true':
+	modes()
+	sys.modules.clear()
+else:
+	dialog = xbmcgui.Dialog()	
+	dialog.ok("Plugin Error", "The McIntyreMedia.tv Tunnel or equivalent service is", "required for this plugin") 
+
