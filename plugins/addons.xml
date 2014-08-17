@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <addons>
-<addon id="plugin.video.cbs" name="CBS" version="1.0.3" provider-name="BlueCop">
+<addon id="plugin.video.cbs" name="CBS" version="1.0.4" provider-name="McIntyreMedia.tv, BlueCop">
   <requires>
     <import addon="xbmc.python" version="2.1.0"/>
     <import addon="script.module.beautifulsoup4" version="4.3.2"/>
@@ -27,7 +27,7 @@
   </extension>
 </addon>
 
-<addon id="plugin.video.natgeo" name="National Geographic" version="1.0.3" provider-name="BlueCop">
+<addon id="plugin.video.natgeo" name="National Geographic" version="1.0.4" provider-name="McIntyreMedia.tv,BlueCop">
   <requires>
     <import addon="xbmc.python" version="2.1.0"/>
     <import addon="script.module.beautifulsoup4" version="4.3.2"/>
@@ -76,7 +76,7 @@
     </extension>
 </addon>
 
-<addon id="plugin.video.bravo" name="Bravo" version="1.0.5" provider-name="BlueCop">
+<addon id="plugin.video.bravo" name="Bravo" version="1.0.6" provider-name="McIntyreMedia.tv, BlueCop">
   <requires>
     <import addon="xbmc.python" version="2.1.0"/>
     <import addon="script.module.beautifulsoup4" version="4.3.2"/>
@@ -101,7 +101,7 @@
   </extension>
 </addon>
 
-<addon id="plugin.video.spike" name="Spike" version="1.0.3" provider-name="BlueCop">
+<addon id="plugin.video.spike" name="Spike" version="1.0.4" provider-name="McIntyreMedia.tv, BlueCop">
   <requires>
     <import addon="xbmc.python" version="2.1.0"/>
     <import addon="script.module.beautifulsoup4" version="4.3.2"/>
@@ -142,7 +142,7 @@
   </extension>
 </addon>
 
-<addon id="plugin.video.aetv" name="A&#38;E" version="1.0.4" provider-name="McIntyreMedia.tv / BlueCop">
+<addon id="plugin.video.aetv" name="A&#38;E" version="1.0.5" provider-name="McIntyreMedia.tv / BlueCop">
   <requires>
     <import addon="xbmc.python" version="2.1.0"/>
     <import addon="script.module.beautifulsoup4" version="4.3.2"/>
@@ -202,7 +202,7 @@
   </extension>
 </addon>
 
-<addon id="plugin.video.crackle" name="Crackle" version="1.0.3" provider-name="McIntyreMedia.tv / BlueCop">
+<addon id="plugin.video.crackle" name="Crackle" version="1.0.4" provider-name="McIntyreMedia.tv / BlueCop">
   <requires>
     <import addon="xbmc.python" version="2.1.0"/>
     <import addon="script.module.beautifulsoup4" version="4.3.2"/>
@@ -231,8 +231,8 @@
 
 <addon id="plugin.video.itv"
        name="ITV"
-       version="2.0.5"
-       provider-name="dlake02,McIntyreMedia.tv">
+       version="2.0.6"
+       provider-name="McIntyreMedia.tv, dlake02">
   <requires>
     <import addon="xbmc.python" version="1.0"/>
   </requires>
@@ -247,7 +247,7 @@
   </extension>
 </addon>
 
-<addon id="plugin.video.disney" name="Disney" version="1.0.3" provider-name="McIntyreMedia.tv / Bluecop">
+<addon id="plugin.video.disney" name="Disney" version="1.0.4" provider-name="McIntyreMedia.tv / Bluecop">
   <requires>
     <import addon="xbmc.python" version="2.1.0"/>
     <import addon="script.module.beautifulsoup4" version="4.3.2"/>
@@ -291,7 +291,7 @@
   </extension>
 </addon>
 
-<addon id="plugin.video.comedycentral" name="Comedy Central" version="1.0.3" provider-name="McIntyremedia.tv,BlueCop">
+<addon id="plugin.video.comedycentral" name="Comedy Central" version="1.0.4" provider-name="McIntyremedia.tv,BlueCop">
   <requires>
     <import addon="xbmc.python" version="2.1.0"/>
     <import addon="script.module.beautifulsoup4" version="4.3.2"/>
@@ -318,7 +318,7 @@
   </extension>
 </addon>
 
-<addon id="plugin.video.pbskids" name="PBS Kids" version="1.0.3" provider-name="BlueCop">
+<addon id="plugin.video.pbskids" name="PBS Kids" version="1.0.4" provider-name="McIntyreMedia.tv, BlueCop">
   <requires>
     <import addon="xbmc.python" version="2.1.0"/>
     <import addon="script.module.beautifulsoup4" version="4.3.2"/>
@@ -345,7 +345,7 @@
   </extension>
 </addon>
 
-<addon id="plugin.video.thecw" name="The CW" version="1.0.3" provider-name="BlueCop">
+<addon id="plugin.video.thecw" name="The CW" version="1.0.4" provider-name="McIntyreMedia.tv, BlueCop">
   <requires>
     <import addon="xbmc.python" version="2.1.0"/>
     <import addon="script.module.beautifulsoup4" version="4.3.2"/>
@@ -395,7 +395,7 @@
   </extension>
 </addon>
 
-<addon id="plugin.video.msnbc" name="MSNBC" version="1.0.3" provider-name="BlueCop">
+<addon id="plugin.video.msnbc" name="MSNBC" version="1.0.4" provider-name="McIntyreMedia.tv, BlueCop">
   <requires>
     <import addon="xbmc.python" version="2.1.0"/>
     <import addon="script.module.beautifulsoup4" version="4.3.2"/>
@@ -442,7 +442,7 @@ AMF3, the default serialization for ActionScript 3.0, provides various advantage
   </extension>
 </addon>
 
-<addon id="plugin.video.abc" name="ABC" version="1.0.3" provider-name="BlueCop">
+<addon id="plugin.video.abc" name="ABC" version="1.0.4" provider-name="McIntyreMedia.tv, BlueCop">
   <requires>
     <import addon="xbmc.python" version="2.1.0"/>
     <import addon="script.module.beautifulsoup4" version="4.3.2"/>
@@ -469,7 +469,7 @@ AMF3, the default serialization for ActionScript 3.0, provides various advantage
   </extension>
 </addon>
 
-<addon id="plugin.video.adultswim" name="Adult Swim" version="1.0.3" provider-name="BlueCop">
+<addon id="plugin.video.adultswim" name="Adult Swim" version="1.0.4" provider-name="McIntyreMedia.tv,BlueCop">
   <requires>
     <import addon="xbmc.python" version="2.1.0"/>
     <import addon="script.module.beautifulsoup4" version="4.3.2"/>
@@ -496,7 +496,7 @@ AMF3, the default serialization for ActionScript 3.0, provides various advantage
   </extension>
 </addon>
 
-<addon id="plugin.video.oxygen" name="Oxygen" version="1.0.3" provider-name="BlueCop">
+<addon id="plugin.video.oxygen" name="Oxygen" version="1.0.4" provider-name="McIntyreMedia.tv, BlueCop">
   <requires>
     <import addon="xbmc.python" version="2.1.0"/>
     <import addon="script.module.beautifulsoup4" version="4.3.2"/>
@@ -523,7 +523,7 @@ AMF3, the default serialization for ActionScript 3.0, provides various advantage
   </extension>
 </addon>
 
-<addon id="plugin.video.nbc" name="NBC" version="1.0.4" provider-name="BlueCop">
+<addon id="plugin.video.nbc" name="NBC" version="1.0.5" provider-name="McIntyreMedia.tv, BlueCop">
   <requires>
     <import addon="xbmc.python" version="2.1.0"/>
     <import addon="script.module.beautifulsoup4" version="4.3.2"/>
@@ -569,7 +569,7 @@ AMF3, the default serialization for ActionScript 3.0, provides various advantage
   </extension>
 </addon>
 
-<addon id="plugin.video.pbs" name="PBS" version="1.0.2" provider-name="BlueCop">
+<addon id="plugin.video.pbs" name="PBS" version="1.0.4" provider-name="McIntyreMedia.tv, BlueCop">
   <requires>
     <import addon="xbmc.python" version="2.1.0"/>
     <import addon="script.module.beautifulsoup4" version="4.3.2"/>
@@ -599,8 +599,8 @@ AMF3, the default serialization for ActionScript 3.0, provides various advantage
 <addon
     id="plugin.video.iplayer"
     name="iPlayer"
-    version="2.5.4"
-    provider-name="Alastair, BuZz, Dink">
+    version="2.5.5"
+    provider-name="McIntyreMedia.tv, Alastair, BuZz, Dink">
     <requires>
         <import addon="xbmc.python" version="2.1.0"/>
         <import addon="script.module.elementtree" />
@@ -612,7 +612,7 @@ AMF3, the default serialization for ActionScript 3.0, provides various advantage
         <platform>all</platform>
         <summary lang="en">Watch TV and listen to radio from the BBC's iPlayer website</summary>
         <description lang="en">
-            This XBMC plugin enables (UK only) the playing of TV and Radio catchup content from the BBC IPlayer website. Live radio and TV feeds are also supported.
+            This XBMC plugin enables the playing of TV and Radio catchup content from the BBC IPlayer website. Live radio and TV feeds are also supported.
         </description>
         <license>GNU GENERAL PUBLIC LICENSE. Version 2, June 1991</license>
         <email>buzz at exotica org uk</email>
@@ -621,7 +621,7 @@ AMF3, the default serialization for ActionScript 3.0, provides various advantage
     </extension>
 </addon>
 
-<addon id="plugin.video.syfy" name="SyFy" version="1.0.3" provider-name="BlueCop">
+<addon id="plugin.video.syfy" name="SyFy" version="1.0.4" provider-name="McIntyreMedia.tv, BlueCop">
   <requires>
     <import addon="xbmc.python" version="2.1.0"/>
     <import addon="script.module.beautifulsoup4" version="4.3.2"/>
@@ -648,7 +648,7 @@ AMF3, the default serialization for ActionScript 3.0, provides various advantage
   </extension>
 </addon>
 
-<addon id="plugin.video.mtv" name="MTV" version="1.0.3" provider-name="McIntyreMedia.tv / BlueCop">
+<addon id="plugin.video.mtv" name="MTV" version="1.0.5" provider-name="McIntyreMedia.tv / BlueCop">
   <requires>
     <import addon="xbmc.python" version="2.1.0"/>
     <import addon="script.module.beautifulsoup4" version="4.3.2"/>
@@ -696,7 +696,7 @@ AMF3, the default serialization for ActionScript 3.0, provides various advantage
   </extension>
 </addon>
 
-<addon id="plugin.video.fox" name="FOX" version="1.0.3" provider-name="BlueCop">
+<addon id="plugin.video.fox" name="FOX" version="1.0.4" provider-name="McIntyreMedia.tv, BlueCop">
   <requires>
     <import addon="xbmc.python" version="2.1.0"/>
     <import addon="script.module.beautifulsoup4" version="4.3.2"/>
@@ -723,7 +723,7 @@ AMF3, the default serialization for ActionScript 3.0, provides various advantage
   </extension>
 </addon>
 
-<addon id="plugin.video.usa" name="USA" version="1.0.3" provider-name="BlueCop">
+<addon id="plugin.video.usa" name="USA" version="1.0.4" provider-name="McIntyreMedia.tv, BlueCop">
   <requires>
     <import addon="xbmc.python" version="2.1.0"/>
     <import addon="script.module.beautifulsoup4" version="4.3.2"/>
@@ -782,7 +782,7 @@ AMF3, the default serialization for ActionScript 3.0, provides various advantage
   </extension>
 </addon>
 
-<addon id="plugin.video.natgeowild" name="National Geographic Wild" version="1.0.3" provider-name="BlueCop">
+<addon id="plugin.video.natgeowild" name="National Geographic Wild" version="1.0.4" provider-name="McIntyreMedia.tv, BlueCop">
   <requires>
     <import addon="xbmc.python" version="2.1.0"/>
     <import addon="script.module.beautifulsoup4" version="4.3.2"/>

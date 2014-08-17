@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <addon id="plugin.video.itv"
        name="ITV"
-       version="2.0.5"
-       provider-name="dlake02,McIntyreMedia.tv">
+       version="2.0.6"
+       provider-name="McIntyreMedia.tv, dlake02">
   <requires>
     <import addon="xbmc.python" version="1.0"/>
   </requires>

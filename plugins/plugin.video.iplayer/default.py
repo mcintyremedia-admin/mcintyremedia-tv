@@ -7,7 +7,7 @@ import traceback
 import logging
 import operator
 
-import xbmc, xbmcgui, xbmcplugin
+import xbmc, xbmcgui, xbmcplugin, xbmcaddon
 import utils
 
 __scriptid__ = "plugin.video.iplayer"
@@ -16,6 +16,13 @@ __addon__ = __addoninfo__["addon"]
 __version__ = __addoninfo__["version"]
 
 sys.path.insert(0, os.path.join(__addoninfo__['path'], 'lib'))
+
+if xbmcaddon.Addon("service.network.tunnel").getSetting('enabled') != 'true':
+    dialog = xbmcgui.Dialog()	
+    dialog.ok("Plugin Error", "The McIntyreMedia.tv Tunnel or equivalent service is", "required for this plugin")
+    sys.exit(0) 
+    
+
 
 try:
     import iplayer2 as iplayer
@@ -168,10 +175,10 @@ def list_feeds(feeds, tvradio='tv', radio=None):
     if tvradio == 'tv' or radio == 'national':
         folders.append(('Categories', 'categories', make_url(listing='categories', tvradio=tvradio)))
         folders.append(('Highlights', 'highlights', make_url(listing='highlights', tvradio=tvradio)))
-    if tvradio == 'radio':
-        folders.append(('Listen Live', 'listenlive', make_url(listing='livefeeds', tvradio=tvradio, radio=radio)))
-    else:
-        folders.append(('Watch Live', 'tv', make_url(listing='livefeeds', tvradio=tvradio)))
+    #if tvradio == 'radio':
+    #    folders.append(('Listen Live', 'listenlive', make_url(listing='livefeeds', tvradio=tvradio, radio=radio)))
+    #else:
+    #    folders.append(('Watch Live', 'tv', make_url(listing='livefeeds', tvradio=tvradio)))
     if tvradio == 'tv' or radio == 'national':
         folders.append(('Popular', 'popular', make_url(listing='popular', tvradio=tvradio)))
         folders.append(('Search', 'search', make_url(listing='searchlist', tvradio=tvradio)))
@@ -1060,8 +1067,7 @@ if os.path.isfile(VERSION_FILE):
 
 if old_version != __version__:
     file_write(VERSION_FILE, __version__)
-    d = xbmcgui.Dialog()
-    d.ok('Welcome to the BBC IPlayer addon', 'Please be aware this addon only works in the UK.', 'The IPlayer service checks to ensure UK IP addresses.')
+    
 
 if __name__ == "__main__":
     try:

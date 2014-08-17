@@ -7,6 +7,11 @@ import urllib2
 
 from BeautifulSoup import BeautifulSoup
 
+if xbmcaddon.Addon("service.network.tunnel").getSetting('enabled') != 'true':
+    dialog = xbmcgui.Dialog()	
+    dialog.ok("Plugin Error", "The McIntyreMedia.tv Tunnel or equivalent service is", "required for this plugin") 
+    sys.exit(0)
+
 # setup cache dir
 __scriptname__  = 'ITV'
 __scriptid__ = "plugin.video.itv"
