@@ -26,7 +26,7 @@ def masterlist():
 	master_dict = {}
 	master_db = []
 	master_data = _connection.getURL(SHOWS)
-	master_tree = BeautifulSoup(master_data, 'html5lib')
+	master_tree = BeautifulSoup(master_data)
 	master_section = master_tree.find_all('div', class_ = 'primetime_and_originals')
 	for section in master_section:
 		master_menu = section.find_all('a', text = True)
@@ -49,14 +49,14 @@ def seasons(season_url = _common.args.url):
 		multiSeason = False
 	for season_url in season_url.split(','):
 		season_data = _connection.getURL(season_url)
-		season_tree = BeautifulSoup(season_data, 'html5lib')
+		season_tree = BeautifulSoup(season_data)
 		season_item = season_tree.find('a', text = re.compile('Episode( Guide)?'))
 		if season_item is not None:
 			if BASE not in season_item['href']:
 				season_data2 = _connection.getURL(BASE + season_item['href'])
 			else:
 				season_data2 = _connection.getURL(season_item['href'])
-			season_tree = BeautifulSoup(season_data2, 'html5lib')
+			season_tree = BeautifulSoup(season_data2)
 			try:
 				season_menu2 = season_tree.find('ul', class_ = 'season_navigation').find_all('a')
 				for season_item2 in season_menu2:
@@ -81,7 +81,7 @@ def seasons(season_url = _common.args.url):
 
 def episodes(episode_url = _common.args.url):
 	episode_data = _connection.getURL(episode_url)
-	episode_tree = BeautifulSoup(episode_data, 'html5lib')
+	episode_tree = BeautifulSoup(episode_data)
 	if 'Video Clips' in _common.args.name :
 		episode_url2 = episode_tree.find('div', class_ = 'v_content')['data-url']
 		if episode_tree.find('div', class_ = 'pagination') is not None:
@@ -184,10 +184,10 @@ def add_clips(episode_tree):
 		
 def play_video(video_uri = _common.args.url):
 	video_data = _connection.getURL(video_uri)
-	video_url = BeautifulSoup(video_data, 'html5lib').find('div', id = 'video_player_box')['data-mgid']
+	video_url = BeautifulSoup(video_data).find('div', id = 'video_player_box')['data-mgid']
 	_main_viacom.play_video(BASE, video_url)	
 	
 def list_qualities(video_url = _common.args.url):
 	video_data = _connection.getURL(video_url)
-	video_url = BeautifulSoup(video_data, 'html5lib').find('div', id = 'video_player_box')['data-mgid']
+	video_url = BeautifulSoup(video_data).find('div', id = 'video_player_box')['data-mgid']
 	return _main_viacom.list_qualities(BASE, video_url)

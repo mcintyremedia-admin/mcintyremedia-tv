@@ -32,7 +32,7 @@ def add_master_shows(url, doubles = [], master_db = []):
 		else:
 			url = SHOWSAZ % chr(i)
 		master_data = _connection.getURL(url)
-		master_tree = BeautifulSoup(master_data, 'html5lib')
+		master_tree = BeautifulSoup(master_data)
 		master_menu = master_tree.find_all('a', attrs = {'data-report' : 'SHOWS_HUB:SHOWS_AZ:SHOW'})
 		for master_item in master_menu:
 			master_name = master_item.text
@@ -61,7 +61,7 @@ def seasons(url = _common.args.url):
 			for season_item in url.split(','):		
 				show_cat_url = season_item + '&filter=' + type[0]
 				show_cat_data = _connection.getURL(show_cat_url)
-				show_cat_tree = BeautifulSoup(show_cat_data, 'html5lib')
+				show_cat_tree = BeautifulSoup(show_cat_data)
 				if show_cat_tree.div:
 					if ',' in url:
 						title = show_cat_tree.find('option', selected = True).string + ' ' + type[1]
@@ -81,7 +81,7 @@ def seasons(url = _common.args.url):
 
 def episodes(url =_common.args.url, page = 1):
 	episode_data = _connection.getURL(url)
-	episode_tree = BeautifulSoup(episode_data, 'html5lib')
+	episode_tree = BeautifulSoup(episode_data)
 	next = episode_tree.find('div', id = 'loadMore')		    
 	add_video(episode_tree)
 	if next is not None:

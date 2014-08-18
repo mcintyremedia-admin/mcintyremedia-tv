@@ -48,7 +48,7 @@ def play_video(BASE, video_url = _common.args.url, media_base = VIDEOURL):
 	for act, video_segment in enumerate(video_segments):
 		video_url3 = video_segment['url'].replace('{device}', DEVICE)
 		video_data3 = _connection.getURL(video_url3, header = {'X-Forwarded-For' : '12.13.14.15'})
-		video_tree3 = BeautifulSoup(video_data3, 'html5lib')
+		video_tree3 = BeautifulSoup(video_data3)
 		try:
 			closedcaption.append(video_tree3.find('typographic', format = 'ttml'))
 		except:
