@@ -20,6 +20,7 @@ from bs4 import BeautifulSoup, SoupStrainer
 
 pluginHandle = int(sys.argv[1])
 
+localhttpserver=False
 SITE = 'nbc'
 NAME = 'NBC'
 DESCRIPTION = "NBC Entertainment develops and schedules programming for the network's primetime, late-night, and daytime schedules. NBC's quality programs and balanced lineup have earned the network critical acclaim, numerous awards, and ratings success. The network has earned more Emmy Awards than any network in television history. NBC's roster of popular scripted series includes critically acclaimed comedies like Emmy winners The Office, starring Steve Carell, and 30 Rock, starring Alec Baldwin and Tina Fey. Veteran, award-winning dramas on NBC include Law & Order: SVU, Chuck, and Friday Night Lights. Unscripted series for NBC include the hits The Biggest Loser, Celebrity Apprentice, and America's Got Talent. NBC's late-night story is highlighted by The Tonight Show with Jay Leno, Late Night with Jimmy Fallon, Last Call with Carson Daly, and Saturday Night Live. NBC Daytime's Days of Our Lives consistently finishes among daytime's top programs in the valuable women 18-34 category. Saturday mornings the network broadcasts Qubo on NBC, a three-hour block that features fun, entertaining, and educational programming for kids, including the award-winning, 3-D animated series Veggie Tales."
@@ -47,7 +48,7 @@ def masterlist():
 
 def rootlist():
 	root_data = _connection.getURL(SHOWS)
-	root_tree = BeautifulSoup(root_data, 'html5lib')
+	root_tree = BeautifulSoup(root_data)
 	root_menu = root_tree.footer.find_all('li', class_ = 'views-row')
 	for root_item in root_menu:
 		root_name = _common.smart_utf8(root_item.text.strip())
@@ -61,7 +62,7 @@ def seasons(season_url = _common.args.url):
 		return
 	season_url = season_url + '/video'
 	season_data = _connection.getURL(season_url)
-	season_tree  = BeautifulSoup(season_data, 'html5lib')
+	season_tree  = BeautifulSoup(season_data)
 	season_menu = season_tree.find_all('div', class_ = 'nbc_mpx_carousel')
 	for season in season_menu:
 		season_title = season.h2.text.strip()
@@ -254,15 +255,11 @@ def play_video(video_url = _common.args.url, tonightshow = False):
 						'episode' : _common.args.episode_number,
 						'TVShowTitle' : _common.args.show_title})
 	xbmcplugin.setResolvedUrl(pluginHandle, True, item)
-	if ((_addoncompat.get_setting('enablesubtitles') == 'true') and (closedcaption is not None))  or localhttpserver is True:
+	if ((_addoncompat.get_setting('enablesubtitles') == 'true') and (closedcaption is not None)) :
 		while not xbmc.Player().isPlaying():
 			xbmc.sleep(100)
 	if (_addoncompat.get_setting('enablesubtitles') == 'true') and (closedcaption is not None):
 		xbmc.Player().setSubtitles(_common.SUBTITLE)
-	if localhttpserver is True:
-		while xbmc.Player().isPlaying():
-			xbmc.sleep(1000)
-		_connection.getURL('http://localhost:12345/stop', connectiontype = 0)
 
 def clean_subs(data):
 	br = re.compile(r'<br.*?>')
