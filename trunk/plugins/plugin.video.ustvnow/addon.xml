@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<addon id="plugin.video.ustvnow" version="0.3.4" name="ustvnow" provider-name="xbmchub.com">
+<addon id="plugin.video.ustvnow" version="0.3.5" name="ustvnow" provider-name="xbmchub.com">
     <requires>
         <import addon="xbmc.python" version="2.1.0"/>
     </requires>
@@ -11,7 +11,7 @@
         <description>Live streaming US TV. You MUST log in to view streams (see addon settings). You can also play any recordings you have made on ustvnow.com</description>
         <platform>all</platform>
         <forum>http://www.xbmchub.com/forums/official-xbmc-hub-repo/</forum>
-        <website>http://www.xbmchub.com/</website>
+        <source>https://mcintyremedia-tv.googlecode.com/svn/trunk/plugins/plugin.video.ustvnow</source>
     </extension>
 </addon>
 

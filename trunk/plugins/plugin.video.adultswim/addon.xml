@@ -21,7 +21,7 @@
     <description lang="de">Ihre Video-on-Demand-Streaming-Plattform aus US-TV-Networks</description>
     <disclaimer lang="en">Some parts of this addon may not be legal in your country of residence - please check with your local laws before installing.</disclaimer>
     <disclaimer lang="de">Einige Teile dieses Addons sind möglicherweise in Ihrem Land nicht legal - bitte prüfen Sie Ihre lokal gültigen Gesetze vor der Installation.</disclaimer>
-    <source></source>
+    <source>https://mcintyremedia-tv.googlecode.com/svn/trunk/plugins/plugin.video.adultswim</source>
     <forum></forum>
   </extension>
 </addon>

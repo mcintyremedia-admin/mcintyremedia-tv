@@ -30,6 +30,8 @@ Addon.plugin_queries = Addon.parse_query(sys.argv[2][1:])
 
 email = Addon.get_setting('email') or DEFAULT_EMAIL
 password = Addon.get_setting('password') or DEFAULT_PASSWORD
+print "Logging into ustvnow with email %s and password %s" % (email, password)
+
 ustv = ustvnow.Ustvnow(email, password)
 
 Addon.log('plugin url: ' + Addon.plugin_url)
