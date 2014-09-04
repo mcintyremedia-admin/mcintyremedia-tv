@@ -22,8 +22,8 @@
     <description lang="de"></description>
     <disclaimer lang="en">Some parts of this addon may not be legal in your country of residence - please check with your local laws before installing.</disclaimer>
     <disclaimer lang="de">Einige Teile dieses Addons sind möglicherweise in Ihrem Land nicht legal - bitte prüfen Sie Ihre lokal gültigen Gesetze vor der Installation.</disclaimer>
-    <source>https://github.com/moneymaker365/plugin.video.ustvvod</source>
-    <forum>http://forum.xbmc.org/showthread.php?tid=166099</forum>
+    <source>https://mcintyremedia-tv.googlecode.com/svn/trunk/plugins/plugin.video.cbs</source>
+    <forum></forum>
   </extension>
 </addon>
 
@@ -49,7 +49,7 @@
     <description lang="de">Ihre Video-on-Demand-Streaming-Plattform aus National Geographic</description>
     <disclaimer lang="en">Some parts of this addon may not be legal in your country of residence - please check with your local laws before installing.</disclaimer>
     <disclaimer lang="de">Einige Teile dieses Addons sind möglicherweise in Ihrem Land nicht legal - bitte prüfen Sie Ihre lokal gültigen Gesetze vor der Installation.</disclaimer>
-    <source></source>
+    <source>https://mcintyremedia-tv.googlecode.com/svn/trunk/plugins/plugin.video.natgeo</source>
     <forum></forum>
   </extension>
 </addon>
@@ -98,6 +98,8 @@
     <description lang="de">Ihre Video-on-Demand-Streaming-Plattform aus Bravo</description>
     <disclaimer lang="en">Some parts of this addon may not be legal in your country of residence - please check with your local laws before installing.</disclaimer>
     <disclaimer lang="de">Einige Teile dieses Addons sind möglicherweise in Ihrem Land nicht legal - bitte prüfen Sie Ihre lokal gültigen Gesetze vor der Installation.</disclaimer>
+    <source>https://mcintyremedia-tv.googlecode.com/svn/trunk/plugins/plugin.video.bravo</source>
+    <forum></forum>
   </extension>
 </addon>
 
@@ -123,7 +125,7 @@
     <description lang="de">Ihre Video-on-Demand-Streaming-Plattform aus Spike</description>
     <disclaimer lang="en">Some parts of this addon may not be legal in your country of residence - please check with your local laws before installing.</disclaimer>
     <disclaimer lang="de">Einige Teile dieses Addons sind möglicherweise in Ihrem Land nicht legal - bitte prüfen Sie Ihre lokal gültigen Gesetze vor der Installation.</disclaimer>
-    <source></source>
+    <source>https://mcintyremedia-tv.googlecode.com/svn/trunk/plugins/plugin.video.spike</source>
     <forum></forum>
   </extension>
 </addon>
@@ -164,7 +166,7 @@
     <description lang="de">A&#38;E Video-on-Demand</description>
     <disclaimer lang="en">Some parts of this addon may not be legal in your country of residence - please check with your local laws before installing.</disclaimer>
     <disclaimer lang="de">Einige Teile dieses Addons sind möglicherweise in Ihrem Land nicht legal - bitte prüfen Sie Ihre lokal gültigen Gesetze vor der Installation.</disclaimer>
-    <source>https://github.com/moneymaker365/plugin.video.ustvvod</source>
+    <source>https://mcintyremedia-tv.googlecode.com/svn/trunk/plugins/plugin.video.aetv</source>
     <forum>http://forum.xbmc.org/showthread.php?tid=166099</forum>
   </extension>
 </addon>
@@ -224,8 +226,8 @@
     <description lang="de">Video-on-Demand aus Crackle</description>
     <disclaimer lang="en">Some parts of this addon may not be legal in your country of residence - please check with your local laws before installing.</disclaimer>
     <disclaimer lang="de">Einige Teile dieses Addons sind möglicherweise in Ihrem Land nicht legal - bitte prüfen Sie Ihre lokal gültigen Gesetze vor der Installation.</disclaimer>
-    <source>https://github.com/moneymaker365/plugin.video.ustvvod</source>
-    <forum>http://forum.xbmc.org/showthread.php?tid=166099</forum>
+    <source>https://mcintyremedia-tv.googlecode.com/svn/trunk/plugins/plugin.video.crackle</source>
+    <forum></forum>
   </extension>
 </addon>
 
@@ -269,8 +271,8 @@
     <description lang="de">Ihre Video-on-Demand-Streaming-Plattform ausDisney Networks</description>
     <disclaimer lang="en">Some parts of this addon may not be legal in your country of residence - please check with your local laws before installing.</disclaimer>
     <disclaimer lang="de">Einige Teile dieses Addons sind möglicherweise in Ihrem Land nicht legal - bitte prüfen Sie Ihre lokal gültigen Gesetze vor der Installation.</disclaimer>
-    <source>https://github.com/moneymaker365/plugin.video.ustvvod</source>
-    <forum>http://forum.xbmc.org/showthread.php?tid=166099</forum>
+    <source>https://mcintyremedia-tv.googlecode.com/svn/trunk/plugins/plugin.video.disney</source>
+    <forum></forum>
   </extension>
 </addon>
 
@@ -313,7 +315,7 @@
     <description lang="de"></description>
     <disclaimer lang="en">Some parts of this addon may not be legal in your country of residence - please check with your local laws before installing.</disclaimer>
     <disclaimer lang="de">Einige Teile dieses Addons sind möglicherweise in Ihrem Land nicht legal - bitte prüfen Sie Ihre lokal gültigen Gesetze vor der Installation.</disclaimer>
-    <source></source>
+    <source>https://mcintyremedia-tv.googlecode.com/svn/trunk/plugins/plugin.video.comedycentral</source>
     <forum></forum>
   </extension>
 </addon>
@@ -340,8 +342,8 @@
     <description lang="de"></description>
     <disclaimer lang="en">Some parts of this addon may not be legal in your country of residence - please check with your local laws before installing.</disclaimer>
     <disclaimer lang="de">Einige Teile dieses Addons sind möglicherweise in Ihrem Land nicht legal - bitte prüfen Sie Ihre lokal gültigen Gesetze vor der Installation.</disclaimer>
-    <source>https://github.com/moneymaker365/plugin.video.ustvvod</source>
-    <forum>http://forum.xbmc.org/showthread.php?tid=166099</forum>
+    <source>https://mcintyremedia-tv.googlecode.com/svn/trunk/plugins/plugin.video.pbskids</source>
+    <forum></forum>
   </extension>
 </addon>
 
@@ -367,8 +369,8 @@
     <description lang="de">Ihre Video-on-Demand aus TheCW</description>
     <disclaimer lang="en">Some parts of this addon may not be legal in your country of residence - please check with your local laws before installing.</disclaimer>
     <disclaimer lang="de">Einige Teile dieses Addons sind möglicherweise in Ihrem Land nicht legal - bitte prüfen Sie Ihre lokal gültigen Gesetze vor der Installation.</disclaimer>
-    <source>https://github.com/moneymaker365/plugin.video.ustvvod</source>
-    <forum>http://forum.xbmc.org/showthread.php?tid=166099</forum>
+    <source>https://mcintyremedia-tv.googlecode.com/svn/trunk/plugins/plugin.video.thecw</source>
+    <forum></forum>
   </extension>
 </addon>
 
@@ -417,7 +419,7 @@
     <description lang="de">Ihre Video-on-Demand-Streaming-Plattform aus MSNBC</description>
     <disclaimer lang="en">Some parts of this addon may not be legal in your country of residence - please check with your local laws before installing.</disclaimer>
     <disclaimer lang="de">Einige Teile dieses Addons sind möglicherweise in Ihrem Land nicht legal - bitte prüfen Sie Ihre lokal gültigen Gesetze vor der Installation.</disclaimer>
-    <source></source>
+    <source>https://mcintyremedia-tv.googlecode.com/svn/trunk/plugins/plugin.video.msnbc</source>
     <forum></forum>
   </extension>
 </addon>
@@ -464,8 +466,7 @@ AMF3, the default serialization for ActionScript 3.0, provides various advantage
     <description lang="de"></description>
     <disclaimer lang="en">Some parts of this addon may not be legal in your country of residence - please check with your local laws before installing.</disclaimer>
     <disclaimer lang="de">Einige Teile dieses Addons sind möglicherweise in Ihrem Land nicht legal - bitte prüfen Sie Ihre lokal gültigen Gesetze vor der Installation.</disclaimer>
-    <source>https://github.com/moneymaker365/plugin.video.ustvvod</source>
-    <forum>http://forum.xbmc.org/showthread.php?tid=166099</forum>
+    <source>https://mcintyremedia-tv.googlecode.com/svn/trunk/plugins/plugin.video.abc</source>
   </extension>
 </addon>
 
@@ -491,7 +492,7 @@ AMF3, the default serialization for ActionScript 3.0, provides various advantage
     <description lang="de">Ihre Video-on-Demand-Streaming-Plattform aus US-TV-Networks</description>
     <disclaimer lang="en">Some parts of this addon may not be legal in your country of residence - please check with your local laws before installing.</disclaimer>
     <disclaimer lang="de">Einige Teile dieses Addons sind möglicherweise in Ihrem Land nicht legal - bitte prüfen Sie Ihre lokal gültigen Gesetze vor der Installation.</disclaimer>
-    <source></source>
+    <source>https://mcintyremedia-tv.googlecode.com/svn/trunk/plugins/plugin.video.adultswim</source>
     <forum></forum>
   </extension>
 </addon>
@@ -518,7 +519,7 @@ AMF3, the default serialization for ActionScript 3.0, provides various advantage
     <description lang="de">Ihre Video-on-Demand-Streaming-Plattform aus Oxygen</description>
     <disclaimer lang="en">Some parts of this addon may not be legal in your country of residence - please check with your local laws before installing.</disclaimer>
     <disclaimer lang="de">Einige Teile dieses Addons sind möglicherweise in Ihrem Land nicht legal - bitte prüfen Sie Ihre lokal gültigen Gesetze vor der Installation.</disclaimer>
-    <source></source>
+    <source>https://mcintyremedia-tv.googlecode.com/svn/trunk/plugins/plugin.video.oxygen</source>
     <forum></forum>
   </extension>
 </addon>
@@ -545,7 +546,7 @@ AMF3, the default serialization for ActionScript 3.0, provides various advantage
     <description lang="de"></description>
     <disclaimer lang="en">Some parts of this addon may not be legal in your country of residence - please check with your local laws before installing.</disclaimer>
     <disclaimer lang="de">Einige Teile dieses Addons sind möglicherweise in Ihrem Land nicht legal - bitte prüfen Sie Ihre lokal gültigen Gesetze vor der Installation.</disclaimer>
-    <source></source>
+    <source>https://mcintyremedia-tv.googlecode.com/svn/trunk/plugins/plugin.video.nbc</source>
     <forum></forum>
   </extension>
 </addon>
@@ -591,12 +592,12 @@ AMF3, the default serialization for ActionScript 3.0, provides various advantage
     <description lang="de"></description>
     <disclaimer lang="en">Some parts of this addon may not be legal in your country of residence - please check with your local laws before installing.</disclaimer>
     <disclaimer lang="de">Einige Teile dieses Addons sind möglicherweise in Ihrem Land nicht legal - bitte prüfen Sie Ihre lokal gültigen Gesetze vor der Installation.</disclaimer>
-    <source>https://github.com/moneymaker365/plugin.video.ustvvod</source>
-    <forum>http://forum.xbmc.org/showthread.php?tid=166099</forum>
+    <source>https://mcintyremedia-tv.googlecode.com/svn/trunk/plugins/plugin.video.pbs</source>
+    <forum></forum>
   </extension>
 </addon>
 
-<addon id="plugin.video.ustvnow" version="0.3.4" name="ustvnow" provider-name="xbmchub.com">
+<addon id="plugin.video.ustvnow" version="0.3.5" name="ustvnow" provider-name="xbmchub.com">
     <requires>
         <import addon="xbmc.python" version="2.1.0"/>
     </requires>
@@ -608,7 +609,7 @@ AMF3, the default serialization for ActionScript 3.0, provides various advantage
         <description>Live streaming US TV. You MUST log in to view streams (see addon settings). You can also play any recordings you have made on ustvnow.com</description>
         <platform>all</platform>
         <forum>http://www.xbmchub.com/forums/official-xbmc-hub-repo/</forum>
-        <website>http://www.xbmchub.com/</website>
+        <source>https://mcintyremedia-tv.googlecode.com/svn/trunk/plugins/plugin.video.ustvnow</source>
     </extension>
 </addon>
 
@@ -659,7 +660,7 @@ AMF3, the default serialization for ActionScript 3.0, provides various advantage
     <description lang="de">Ihre Video-on-Demand-Streaming-Plattform aus SyFy</description>
     <disclaimer lang="en">Some parts of this addon may not be legal in your country of residence - please check with your local laws before installing.</disclaimer>
     <disclaimer lang="de">Einige Teile dieses Addons sind möglicherweise in Ihrem Land nicht legal - bitte prüfen Sie Ihre lokal gültigen Gesetze vor der Installation.</disclaimer>
-    <source></source>
+    <source>https://mcintyremedia-tv.googlecode.com/svn/trunk/plugins/plugin.video.syfy</source>
     <forum></forum>
   </extension>
 </addon>
@@ -686,7 +687,7 @@ AMF3, the default serialization for ActionScript 3.0, provides various advantage
     <description lang="de">Ihre Video-on-Demand-Streaming-Plattform aus MTV</description>
     <disclaimer lang="en">Some parts of this addon may not be legal in your country of residence - please check with your local laws before installing.</disclaimer>
     <disclaimer lang="de">Einige Teile dieses Addons sind möglicherweise in Ihrem Land nicht legal - bitte prüfen Sie Ihre lokal gültigen Gesetze vor der Installation.</disclaimer>
-    <source></source>
+    <source>https://mcintyremedia-tv.googlecode.com/svn/trunk/plugins/plugin.video.mtv</source>
     <forum></forum>
   </extension>
 </addon>
@@ -734,8 +735,8 @@ AMF3, the default serialization for ActionScript 3.0, provides various advantage
     <description lang="de"></description>
     <disclaimer lang="en">Some parts of this addon may not be legal in your country of residence - please check with your local laws before installing.</disclaimer>
     <disclaimer lang="de">Einige Teile dieses Addons sind möglicherweise in Ihrem Land nicht legal - bitte prüfen Sie Ihre lokal gültigen Gesetze vor der Installation.</disclaimer>
-    <source>https://github.com/moneymaker365/plugin.video.ustvvod</source>
-    <forum>http://forum.xbmc.org/showthread.php?tid=166099</forum>
+    <source>https://mcintyremedia-tv.googlecode.com/svn/trunk/plugins/plugin.video.fox</source>
+    <forum></forum>
   </extension>
 </addon>
 
@@ -761,7 +762,7 @@ AMF3, the default serialization for ActionScript 3.0, provides various advantage
     <description lang="de">Ihre Video-on-Demand-Streaming-Plattform aus USA</description>
     <disclaimer lang="en">Some parts of this addon may not be legal in your country of residence - please check with your local laws before installing.</disclaimer>
     <disclaimer lang="de">Einige Teile dieses Addons sind möglicherweise in Ihrem Land nicht legal - bitte prüfen Sie Ihre lokal gültigen Gesetze vor der Installation.</disclaimer>
-    <source></source>
+    <source>https://mcintyremedia-tv.googlecode.com/svn/trunk/plugins/plugin.video.usa</source>
     <forum></forum>
   </extension>
 </addon>
@@ -820,7 +821,7 @@ AMF3, the default serialization for ActionScript 3.0, provides various advantage
     <description lang="de">Ihre Video-on-Demand-Streaming-Plattform aus National Geographic Wild</description>
     <disclaimer lang="en">Some parts of this addon may not be legal in your country of residence - please check with your local laws before installing.</disclaimer>
     <disclaimer lang="de">Einige Teile dieses Addons sind möglicherweise in Ihrem Land nicht legal - bitte prüfen Sie Ihre lokal gültigen Gesetze vor der Installation.</disclaimer>
-    <source></source>
+    <source>https://mcintyremedia-tv.googlecode.com/svn/trunk/plugins/plugin.video.natgeowild</source>
     <forum></forum>
   </extension>
 </addon>

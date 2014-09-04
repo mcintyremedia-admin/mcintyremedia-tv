@@ -21,7 +21,7 @@
     <description lang="de">Ihre Video-on-Demand-Streaming-Plattform ausDisney Networks</description>
     <disclaimer lang="en">Some parts of this addon may not be legal in your country of residence - please check with your local laws before installing.</disclaimer>
     <disclaimer lang="de">Einige Teile dieses Addons sind möglicherweise in Ihrem Land nicht legal - bitte prüfen Sie Ihre lokal gültigen Gesetze vor der Installation.</disclaimer>
-    <source>https://github.com/moneymaker365/plugin.video.ustvvod</source>
-    <forum>http://forum.xbmc.org/showthread.php?tid=166099</forum>
+    <source>https://mcintyremedia-tv.googlecode.com/svn/trunk/plugins/plugin.video.disney</source>
+    <forum></forum>
   </extension>
 </addon>
